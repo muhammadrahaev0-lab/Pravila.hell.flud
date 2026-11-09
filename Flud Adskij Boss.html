@@ -1,0 +1,521 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Flud Adskij Boss</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;900&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: one long infernal contract. Giant stacked title, sticky section tabs, ten ruled sections with outlined numerals, a punishment ladder that widens with severity. Single dark look by choice. */
+:root {
+  --bg: #0e0809;
+  --panel: #170d10;
+  --panel-2: #21131a;
+  --line: #3b1b21;
+  --fg: #f2e7e3;
+  --muted: #bda5a1;
+  --blood: #e63950;
+  --ember: #ff8a3d;
+  --font-display: "Unbounded", "Arial Black", Impact, sans-serif;
+  --font-body: "Golos Text", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--bg);
+}
+.wrap { max-width: 880px; margin: 0 auto; }
+
+/* Hero */
+.hero {
+  position: relative;
+  padding-block: 56px 36px;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -40px -16px 0;
+  z-index: -1;
+  background:
+    radial-gradient(60% 70% at 85% 0%, rgba(230, 57, 80, 0.28), transparent 70%),
+    radial-gradient(50% 50% at 10% 100%, rgba(255, 138, 61, 0.12), transparent 70%);
+  pointer-events: none;
+}
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin: 0 0 16px;
+}
+h1 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.5rem, 12.5vw, 6.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+h1 span { display: block; }
+h1 .hot {
+  color: var(--blood);
+  animation: flicker 5s infinite;
+}
+@keyframes flicker {
+  0%, 100% { text-shadow: 0 0 24px rgba(230, 57, 80, 0.55); }
+  46% { text-shadow: 0 0 24px rgba(230, 57, 80, 0.55); }
+  48% { text-shadow: 0 0 8px rgba(230, 57, 80, 0.2); }
+  50% { text-shadow: 0 0 34px rgba(255, 138, 61, 0.6); }
+  52% { text-shadow: 0 0 24px rgba(230, 57, 80, 0.55); }
+}
+.subtitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(0.85rem, 3.4vw, 1.2rem);
+  letter-spacing: 0.9em;
+  margin: 22px 0 0;
+  color: var(--muted);
+}
+
+/* Section tabs */
+.tabs {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: var(--bg);
+  border-block: 1px solid var(--line);
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  padding-inline: max(16px, env(safe-area-inset-left, 0px));
+}
+.tabs-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-block: 8px;
+}
+.tabs-inner::-webkit-scrollbar { display: none; }
+.tabs a {
+  flex: none;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.tabs a b {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: var(--blood);
+}
+.tabs a:hover { color: var(--fg); background: var(--panel); }
+.tabs a.on { color: var(--fg); background: var(--panel-2); }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 2px;
+}
+
+/* Rule sections */
+.rule {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px 40px;
+  padding-block: 40px;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: calc(64px + env(safe-area-inset-top, 0px));
+}
+.rule-head { display: flex; align-items: baseline; gap: 16px; }
+.num {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3rem, 14vw, 5.5rem);
+  line-height: 0.9;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--blood);
+}
+h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1rem, 4.2vw, 1.3rem);
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+@media (min-width: 760px) {
+  .rule { grid-template-columns: 9rem 1fr; }
+  .rule-head { display: contents; }
+  .num { grid-column: 1; grid-row: 1 / span 3; align-self: start; }
+  h2 { grid-column: 2; }
+  .rule > :not(.rule-head) { grid-column: 2; }
+}
+ul.items { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; max-width: 65ch; min-width: 0; }
+ul.items li { position: relative; padding-left: 26px; overflow-wrap: anywhere; }
+ul.items li::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 0.62em;
+  width: 8px;
+  height: 8px;
+  background: var(--blood);
+  transform: rotate(45deg);
+}
+
+/* Copy blocks */
+.copy {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  max-width: 65ch;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.copy pre {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 14px 16px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.copy pre i { font-style: normal; color: var(--ember); }
+.copy button {
+  flex: none;
+  border: 0;
+  border-left: 1px solid var(--line);
+  background: var(--panel-2);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0 16px;
+  cursor: pointer;
+}
+.copy button:hover { background: var(--blood); }
+.copy-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 6px 0 -6px;
+}
+
+/* Punishment ladder */
+ol.ladder { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; max-width: 65ch; min-width: 0; }
+ol.ladder li {
+  display: grid;
+  grid-template-columns: 2.2rem 1fr;
+  gap: 4px 12px;
+  padding: 12px 14px 14px;
+  background: var(--panel);
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}
+ol.ladder .lv {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--ember);
+  padding-top: 1px;
+}
+ol.ladder .bar {
+  grid-column: 2;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line);
+  position: relative;
+  overflow: hidden;
+}
+ol.ladder .bar::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: calc(var(--lvl) * 20%);
+  background: linear-gradient(90deg, var(--ember), var(--blood));
+}
+.after-ladder { margin-top: 6px; }
+
+/* Footer */
+footer { padding-block: 56px 8px; }
+.foot-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.1rem, 5vw, 1.6rem);
+  letter-spacing: 0.04em;
+  color: var(--blood);
+  margin: 0 0 20px;
+}
+.motto {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.4rem, 6.4vw, 2.6rem);
+  line-height: 1.15;
+  margin: 0 0 20px;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.motto-2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(0.85rem, 3.4vw, 1.05rem);
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0;
+  max-width: 40ch;
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  h1 .hot { animation: none; text-shadow: 0 0 24px rgba(230, 57, 80, 0.55); }
+}
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="kicker">Правила чата</p>
+    <h1><span>Flud</span><span class="hot">Adskij</span><span>Boss</span></h1>
+    <p class="subtitle">П Р А В И Л А</p>
+  </header>
+</div>
+
+<nav class="tabs" aria-label="Разделы правил">
+  <div class="tabs-inner" id="tabs">
+    <a href="#r01"><b>01</b>Основное</a>
+    <a href="#r02"><b>02</b>Порядок</a>
+    <a href="#r03"><b>03</b>Контент</a>
+    <a href="#r04"><b>04</b>Лексика</a>
+    <a href="#r05"><b>05</b>Вступление</a>
+    <a href="#r06"><b>06</b>Выход</a>
+    <a href="#r07"><b>07</b>Админы</a>
+    <a href="#r08"><b>08</b>Наказания</a>
+    <a href="#r09"><b>09</b>Жалобы</a>
+    <a href="#r10"><b>10</b>Итог</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="rule" id="r01">
+    <div class="rule-head"><span class="num">01</span><h2>ОСНОВНЫЕ ПОЛОЖЕНИЯ</h2></div>
+    <ul class="items">
+      <li>Добро пожаловать во флуд! Здесь каждый участник должен соблюдать правила и уважать окружающих.</li>
+      <li>Уважайте мнение других участников, даже если оно отличается от вашего.</li>
+      <li>Запрещены травля, унижения, целенаправленные оскорбления и преследование.</li>
+      <li>Не провоцируйте конфликты и не угрожайте другим участникам.</li>
+      <li>Запрещено выдавать себя за владельца или администрацию чата.</li>
+    </ul>
+  </section>
+
+  <section class="rule" id="r02">
+    <div class="rule-head"><span class="num">02</span><h2>ОБЩЕНИЕ И ПОРЯДОК</h2></div>
+    <ul class="items">
+      <li>Не засоряйте чат одинаковыми сообщениями.</li>
+      <li>Запрещён массовый спам стикерами, GIF и другими материалами.</li>
+      <li>Не злоупотребляйте упоминаниями участников.</li>
+      <li>Не обходите ограничения, установленные администрацией.</li>
+      <li>Реклама других чатов и каналов разрешена только с согласия администрации.</li>
+    </ul>
+  </section>
+
+  <section class="rule" id="r03">
+    <div class="rule-head"><span class="num">03</span><h2>КОНТЕНТ И ЛИЧНЫЕ ГРАНИЦЫ</h2></div>
+    <ul class="items">
+      <li>Запрещено распространять личную информацию участников без их согласия.</li>
+      <li>Не публикуйте чужие фотографии и личные переписки с целью унижения или травли.</li>
+      <li>Запрещён незаконный контент.</li>
+      <li>Запрещены материалы сексуального характера с участием несовершеннолетних.</li>
+      <li>Не отправляйте участникам нежелательный шокирующий контент.</li>
+    </ul>
+  </section>
+
+  <section class="rule" id="r04">
+    <div class="rule-head"><span class="num">04</span><h2>НЕЦЕНЗУРНАЯ ЛЕКСИКА И ОСКОРБЛЕНИЯ</h2></div>
+    <ul class="items">
+      <li>Использование мата не является автоматическим нарушением, если он не направлен против участника.</li>
+      <li>Запрещены личные оскорбления, унижения и систематическая травля.</li>
+      <li>Запрещено намеренно провоцировать участников на конфликты.</li>
+      <li>Установленные правила цензуры обязательны для всех.</li>
+      <li>Правила распространяются на каждого участника без исключений.</li>
+    </ul>
+  </section>
+
+  <section class="rule" id="r05">
+    <div class="rule-head"><span class="num">05</span><h2>ВСТУПЛЕНИЕ И НИКНЕЙМ</h2></div>
+    <ul class="items">
+      <li>После вступления необходимо отправить сообщение по форме: + Ник персонажа.</li>
+    </ul>
+    <p class="copy-label">Форма вступления</p>
+    <div class="copy">
+      <pre id="join-text">+ Ник персонажа</pre>
+      <button type="button" data-copy="join-text">Копировать</button>
+    </div>
+    <ul class="items">
+      <li>Используйте имя персонажа из Helluva Boss или Hazbin Hotel.</li>
+      <li>Никнейм необходимо изменить через бота непосредственно в чате.</li>
+      <li>Менять имя профиля Telegram не требуется.</li>
+      <li>Если возникли трудности с изменением ника, обратитесь к администрации.</li>
+    </ul>
+  </section>
+
+  <section class="rule" id="r06">
+    <div class="rule-head"><span class="num">06</span><h2>ВЫХОД ИЗ ФЛУДА</h2></div>
+    <ul class="items">
+      <li>При выходе из флуда ОБЯЗАТЕЛЬНО укажите причину и свою роль.</li>
+      <li>Сообщение можно оставить непосредственно во флуде, отметив владельца или совладельца.</li>
+      <li>Также разрешено сообщить причину лично администрации.</li>
+      <li>Не уходите молча, чтобы администрация могла обновить список участников и ролей.</li>
+    </ul>
+    <p class="copy-label">Форма выхода</p>
+    <div class="copy">
+      <pre id="exit-text"><i>Ник:</i>
+<i>Роль:</i>
+<i>Причина выхода:</i></pre>
+      <button type="button" data-copy="exit-text">Копировать</button>
+    </div>
+  </section>
+
+  <section class="rule" id="r07">
+    <div class="rule-head"><span class="num">07</span><h2>ПРАВИЛА ДЛЯ АДМИНИСТРАЦИИ</h2></div>
+    <ul class="items">
+      <li>Администрация обязана соблюдать общие правила чата.</li>
+      <li>Запрещено использовать полномочия для личной мести или давления.</li>
+      <li>Каждое наказание должно иметь понятную причину.</li>
+      <li>Запрещено наказывать участников за обычную критику или несогласие.</li>
+      <li>Администратор обязан признавать и исправлять свои ошибки.</li>
+      <li>Жалобы на действия администрации рассматриваются старшим администратором или владельцем.</li>
+      <li>Дружба с владельцем не освобождает от ответственности.</li>
+      <li>Младшие администраторы не должны превышать свои полномочия.</li>
+    </ul>
+  </section>
+
+  <section class="rule" id="r08">
+    <div class="rule-head"><span class="num">08</span><h2>СИСТЕМА НАКАЗАНИЙ</h2></div>
+    <p style="margin:0">В зависимости от нарушения администрация может применить:</p>
+    <ol class="ladder">
+      <li style="--lvl:1"><span class="lv">01</span><span>Предупреждение.</span><span class="bar"></span></li>
+      <li style="--lvl:2"><span class="lv">02</span><span>Мут на 10-30 минут за повторный спам.</span><span class="bar"></span></li>
+      <li style="--lvl:3"><span class="lv">03</span><span>Мут от 1 до 24 часов за систематические нарушения.</span><span class="bar"></span></li>
+      <li style="--lvl:4"><span class="lv">04</span><span>Временный бан за серьёзные нарушения.</span><span class="bar"></span></li>
+      <li style="--lvl:5"><span class="lv">05</span><span>Постоянный бан за грубые или неоднократные нарушения.</span><span class="bar"></span></li>
+    </ol>
+    <ul class="items after-ladder">
+      <li>При выборе наказания учитываются тяжесть нарушения, повторяемость, обстоятельства и доказательства.</li>
+      <li>За серьёзное нарушение наказание может применяться без предварительного предупреждения.</li>
+      <li>Запрещено выдавать постоянный бан из-за личной неприязни.</li>
+    </ul>
+  </section>
+
+  <section class="rule" id="r09">
+    <div class="rule-head"><span class="num">09</span><h2>ЖАЛОБЫ И ОБЖАЛОВАНИЕ</h2></div>
+    <ul class="items">
+      <li>Каждый участник имеет право узнать причину наказания.</li>
+      <li>Если вы не согласны с решением администрации, можете подать жалобу.</li>
+      <li>Жалобы рассматриваются старшим администратором или владельцем.</li>
+      <li>Запрещено подделывать доказательства и выдвигать заведомо ложные обвинения.</li>
+      <li>Запрещено преследовать участника за поданную жалобу.</li>
+      <li>Администрация обязана рассматривать обращения объективно.</li>
+    </ul>
+  </section>
+
+  <section class="rule" id="r10">
+    <div class="rule-head"><span class="num">10</span><h2>ЗАКЛЮЧИТЕЛЬНЫЕ ПОЛОЖЕНИЯ</h2></div>
+    <ul class="items">
+      <li>Незнание правил не освобождает от ответственности.</li>
+      <li>Обновления правил будут заранее объявляться администрацией.</li>
+      <li>Новые правила не применяются задним числом.</li>
+      <li>Ни статус, ни должность, ни дружба с администрацией не дают права нарушать правила.</li>
+      <li>Каждый участник несёт ответственность за своё поведение.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p class="foot-name">FLUD ADSKIJ BOSS</p>
+  <p class="motto">ЗДЕСЬ ЦЕНЯТ ПОРЯДОК, А НЕ БЕСПРЕДЕЛ.</p>
+  <p class="motto-2">АДМИНИСТРАЦИЯ - ЭТО ОТВЕТСТВЕННОСТЬ, А НЕ ВЛАСТЬ РАДИ ЭГО.</p>
+</footer>
+
+<script>
+(function () {
+  // Copy buttons
+  document.querySelectorAll("button[data-copy]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var el = document.getElementById(btn.getAttribute("data-copy"));
+      var text = el.innerText.replace(/\n+$/, "");
+      if (btn.getAttribute("data-copy") === "exit-text") text = text.split("\n").join("\n") + " ";
+      var done = function () {
+        btn.textContent = "Скопировано";
+        setTimeout(function () { btn.textContent = "Копировать"; }, 1600);
+      };
+      var fallback = function () {
+        try {
+          var r = document.createRange();
+          r.selectNodeContents(el);
+          var s = window.getSelection();
+          s.removeAllRanges();
+          s.addRange(r);
+          btn.textContent = "Выделено";
+          setTimeout(function () { btn.textContent = "Копировать"; }, 1600);
+        } catch (e) {}
+      };
+      try {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } catch (e) { fallback(); }
+    });
+  });
+
+  // Highlight the tab of the section in view
+  var links = {};
+  document.querySelectorAll("#tabs a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+  var tabs = document.getElementById("tabs");
+  function setOn(id) {
+    Object.keys(links).forEach(function (k) { links[k].classList.toggle("on", k === id); });
+    var a = links[id];
+    if (a && tabs.scrollWidth > tabs.clientWidth) {
+      tabs.scrollLeft = a.offsetLeft - (tabs.clientWidth - a.offsetWidth) / 2;
+    }
+  }
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) setOn(e.target.id); });
+    }, { rootMargin: "-30% 0px -60% 0px" });
+    document.querySelectorAll(".rule").forEach(function (s) { io.observe(s); });
+  }
+})();
+</script>
+
+</body></html>
